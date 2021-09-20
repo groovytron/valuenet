@@ -37173,3 +37173,10 @@ ALTER TABLE ONLY public.spatialunit
 -- PostgreSQL database dump complete
 --
 
+
+CREATE USER hack_zurich_readonly WITH PASSWORD 'password';
+GRANT CONNECT ON DATABASE hack_zurich TO hack_zurich_readonly;
+GRANT USAGE ON SCHEMA public TO hack_zurich_readonly;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO hack_zurich_readonly;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT SELECT on TABLES TO hack_zurich_readonly;
+
